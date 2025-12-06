@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# 🛠️ Adam's MicroTools Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Open Source. Privacy First. No fluff.**
 
-Currently, two official plugins are available:
+A central hub for all micro-tools created by [Adam Siwek (Timmlion)](https://github.com/Timmlion). This dashboard serves as a minimalist entry point to various utilities, prioritizing privacy, speed, and clean UX.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 **Live Demo:** [tools.adamsiwek.pl](https://tools.adamsiwek.pl)
 
-## React Compiler
+## 🎯 Purpose
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+The goal of this project is to aggregate independent micro-applications into a unified interface, making it easier for users to discover and access useful developer tools without tracking or bloat.
 
-## Expanding the ESLint configuration
+## 🚀 Featured Tools
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Currently aggregated tools:
+- **[LivePreview](https://livepreview.adamsiwek.pl)** ([Repo](https://github.com/Timmlion/LivePreview)) - Real-time HTML/CSS/JS code previewer.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🏗️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Framework:** React 19
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS (Dark Mode)
+- **Language:** TypeScript
+- **Icons:** Lucide React
+- **Analytics:** Umami (Privacy-friendly)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🏃‍♂️ Running Locally
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Timmlion/ToolsDashboard.git
+   cd ToolsDashboard
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+## ➕ Adding a New Tool
+
+Tools are managed via a static configuration file. To add a new tool:
+
+1. Open `src/data/tools.ts`.
+2. Add a new object to the `tools` array:
+   ```typescript
+   {
+     id: 'new-tool',
+     title: 'New Tool Name',
+     description: {
+       pl: 'Krótki opis po polsku.',
+       en: 'Short description in English.'
+     },
+     url: 'https://tool.adamsiwek.pl',
+     repo: 'https://github.com/Timmlion/tool-repo',
+     tags: ['Dev', 'Utility'],
+     icon: 'Zap', // Any icon name from Lucide React
+     status: 'Live' // 'Live' | 'Beta' | 'Building'
+   }
+   ```
+
+## 🤝 Support
+
+If you find these tools useful, consider supporting the work:
+[☕ Buy me a coffee](https://ko-fi.com/adamsiwek)
