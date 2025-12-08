@@ -8,6 +8,20 @@
   }
   
   body {
-    @apply bg-zinc-950 text-zinc-100 min-h-screen antialiased;
+    @apply bg-zinc-950 text-zinc-100 min-h-screen antialiased selection:bg-primary-500/30 selection:text-primary-100;
   }
+}
+
+/* Custom Scrollbar for Webkit */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-zinc-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-700 rounded-full hover:bg-zinc-600 border-2 border-zinc-900;
 }
