@@ -8,7 +8,7 @@ import { translations } from './data/translations';
 
 // Separate component for Provider wrapping
 import { LanguageProvider } from './contexts/LanguageContext';
-import { ToastProvider, useToast } from './contexts/ToastContext';
+import { ToastProvider } from './contexts/ToastContext';
 
 function AppContent() {
   const { language } = useLanguage();
